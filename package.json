@@ -1,0 +1,40 @@
+{
+  "name": "hardhat-deployed",
+  "version": "0.1.0",
+  "description": "Hardhat plugin for saving deployed contract address.",
+  "repository": "github:xiaosongfu/hardhat-deployed",
+  "author": "xiaosongfu",
+  "license": "MIT",
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "hardhat",
+    "hardhat-plugin",
+    "deployed",
+    "deployed address"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "prettier": "prettier --write 'src/**/*.{js,ts}'",
+    "test": "mocha --exit --recursive 'test/**/*.{js,ts}'",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/mustache": "^4.2.2",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.0",
+    "typescript": "^4.9.5"
+  },
+  "peerDependencies": {
+    "hardhat": "^2.22.3"
+  }
+}
