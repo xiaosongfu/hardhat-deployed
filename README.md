@@ -15,7 +15,7 @@ $ yarn add --dev hardhat-deployed
 - `npx hardhat deployed init [--netwrok <network>]`: Initializes the deployed folder, `--netwrok` parameter is optional, default value is `hardhat` from Hardhat framework.Only needs to be executed once.
 - `npx hardhat deployed add [--netwrok <network>]`: Generating new boring code for deploying to the new chain specified by `--netwrok` parameter.
 - `npx hardhat deployed migrate`: Migrate the deployed folder, when contracts are rename、delete or add new contracts.
-- `npx hardhat deployed list [--netwrok <network>]`: Listing contracts deployed address of the chain specified by `--netwrok` parameter.
+- `npx hardhat deployed list [--netwrok <network>] [--explorer https://etherscan.io/tx/]`: Listing contracts deployed address of the chain specified by `--netwrok` parameter. you can also specify the explorer url by `--explorer` parameter.
 
 Commonly, you need execute `npx hardhat deployed init [--netwrok <network>]` first and only once, and then:
 - when you want to deploy contracts to a new network, you need to execute `npx hardhat deployed add --netwrok <network>`
@@ -58,6 +58,9 @@ following is a `scripts/deployed` directory example:
 so, in your deploy scripts, you can use `get<Foo>Contract(): string` function to get contract's address; and use `save<Foo>Contract(addr: string)` function to save contract's address.
 
 #### 5. Version History
+
+- v0.1.1 (2024/08/08)
+  - fix: 'list' command will not throw an error when explorer is not builtin
 
 - v0.1.0 (2024/05/07)
   - init release

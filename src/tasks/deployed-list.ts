@@ -33,12 +33,12 @@ deployedTaskScope
         taskArgs.explorer != null
           ? taskArgs.explorer
           : blockchainExplorer(chainId);
-      if (explorer == "") {
-        throw new HardhatPluginError(
-          PLUGIN_NAME,
-          "chain not support, please specify block explorer manually by using '--explorer https://etherscan.io/tx/'",
-        );
-      }
+      // if (explorer == "") {
+      //   throw new HardhatPluginError(
+      //     PLUGIN_NAME,
+      //     "chain not support, please specify block explorer manually by using '--explorer https://etherscan.io/tx/'",
+      //   );
+      // }
 
       // if manifest file not exists, throw an error
       const manifest = `${configs.deployedDir}/${network}/contracts.json`;
@@ -56,8 +56,12 @@ deployedTaskScope
         return {
           Contract: element[0],
           Address: element[1],
-          "Blockchain Explorer":
-            element[1] == DEFAULT_DEPLOYED_ADDRESS ? "" : explorer + element[1],
+          Explorer:
+            element[1] == DEFAULT_DEPLOYED_ADDRESS
+              ? ""
+              : explorer == ""
+              ? "--"
+              : explorer + element[1],
         };
       });
       console.table(list);

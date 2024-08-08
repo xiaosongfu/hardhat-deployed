@@ -1,6 +1,6 @@
 {
   "name": "hardhat-deployed",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hardhat plugin for saving deployed contract address.",
   "repository": "github:xiaosongfu/hardhat-deployed",
   "author": "xiaosongfu",
