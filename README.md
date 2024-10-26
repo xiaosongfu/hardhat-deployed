@@ -33,10 +33,11 @@ import 'hardhat-deployed';
 
 Add configuration under `deployed` key:
 
-| option            | description                                                       | optional | default            |
-|-------------------|-------------------------------------------------------------------|----------|--------------------|
-| `deployedDir`     | path to generated `deployed` directory (relative to Hardhat root) | true     | `scripts/deployed` |
-| `ignoreContracts` | which contracts wants to ignore                                   | true     | `[]`               |
+| option              | description                                                        | optional | default            |
+|---------------------|--------------------------------------------------------------------|----------|--------------------|
+| `deployedDir`       | path to generated `deployed` directory (relative to Hardhat root)  | true     | `scripts/deployed` |
+| `ignoreContracts`   | which contracts wants to ignore                                    | true     | `[]`               |
+| `externalContracts` | external contracts wants to include, for example `Beacon` contract | true     | `[]`               |
 
 example:
 
@@ -44,6 +45,7 @@ example:
 deployed: {
     deployedDir: "scripts/deployed",
     ignoreContracts: ["MockERC20", "Foo"],
+    externalContracts: ["Beacon"],
 }
 ```
 
@@ -58,6 +60,9 @@ following is a `scripts/deployed` directory example:
 so, in your deploy scripts, you can use `get<Foo>Contract(): string` function to get contract's address; and use `save<Foo>Contract(addr: string)` function to save contract's address.
 
 #### 5. Version History
+
+- v0.2.0 (2024/10/26)
+  - feature: add `externalContracts` option to include external contracts
 
 - v0.1.1 (2024/08/08)
   - fix: 'list' command will not throw an error when explorer is not builtin

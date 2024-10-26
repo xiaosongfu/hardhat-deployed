@@ -37,7 +37,7 @@ deployedTaskScope
 
     // sourceNames: ["PepeForkToken", "mock/MockERC20"]
     // contracts: [{contractName: "MockERC20", attrs: ["mock", "MockERC2"]}, ...]
-    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts);
+    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts, configs.externalContracts);
 
     // create `deployed` folder
     fs.mkdirSync(configs.deployedDir);

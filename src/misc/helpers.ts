@@ -3,6 +3,7 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 export async function parseArtifacts(
   hre: HardhatRuntimeEnvironment,
   ignoreContracts: string[],
+  externalContracts: string[],
 ): Promise<{
   contracts: { name: string; path: string[] }[];
 }> {
@@ -63,6 +64,11 @@ export async function parseArtifacts(
     // ----  Foo2 [ 'mock', 'foo', 'Foo2' ]
 
     contracts.push({ name, path });
+  }
+
+  // add `externalContracts`
+  for (const externalContract of externalContracts) {
+    contracts.push({ name: externalContract, path: [externalContract] });
   }
 
   return new Promise((resolve) => {

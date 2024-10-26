@@ -32,7 +32,7 @@ deployedTaskScope
       );
     }
 
-    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts);
+    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts, configs.externalContracts);
 
     // write new `index.ts` file
     const code = Mustache.render(indexFile, { contracts });

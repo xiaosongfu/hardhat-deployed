@@ -31,7 +31,7 @@ deployedTaskScope
       );
     }
 
-    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts);
+    const { contracts } = await parseArtifacts(hre, configs.ignoreContracts, configs.externalContracts);
 
     // create <network> folder
     fs.mkdirSync(`${configs.deployedDir}/${network}`);

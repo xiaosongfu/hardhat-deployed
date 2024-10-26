@@ -18,8 +18,9 @@ extendConfig(
     const deployedDir =
       userConfig.deployed?.deployedDir ?? DEFAULT_DEPLOYED_DIR;
     const ignoreContracts = userConfig.deployed?.ignoreContracts ?? [];
+    const externalContracts = userConfig.deployed?.externalContracts ?? [];
 
     // inject config fields
-    config.deployed = { deployedDir, ignoreContracts };
+    config.deployed = { deployedDir, ignoreContracts, externalContracts };
   },
 );

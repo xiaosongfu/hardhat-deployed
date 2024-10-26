@@ -8,12 +8,16 @@ declare module "hardhat/types/config" {
     deployedDir?: string;
 
     ignoreContracts?: string[];
+
+    externalContracts?: string[];
   }
 
   export interface DeployedConfig {
     deployedDir: string;
 
     ignoreContracts: string[];
+
+    externalContracts: string[];
   }
 
   export interface HardhatUserConfig {
